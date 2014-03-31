@@ -58,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\MapCtrl.js" />
-    <Content Include="app\directives\Check.js" />
     <Content Include="app\directives\DynamicMapServiceLayer.js" />
     <Content Include="app\directives\FeatureLayer.js" />
     <Content Include="app\directives\Map.js" />
