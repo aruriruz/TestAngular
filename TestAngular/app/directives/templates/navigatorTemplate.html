@@ -23,14 +23,14 @@
         }
     </style>
     <circle cx="50" cy="50" r="42" fill="white" opacity="0.75" />
-    <path class="buttonNav" id="moveUp" d="M50 10 l12   20 a40, 70 0 0,0 -24,  0z" />
-    <path class="buttonNav" id="moveLeft" d="M10 50 l20  -12 a70, 40 0 0,0   0, 24z" />
-    <path class="buttonNav" id="moveDown" d="M50 90 l12  -20 a40, 70 0 0,1 -24,  0z" />
-    <path class="buttonNav" id="moveRight" d="M90 50 l-20 -12 a70, 40 0 0,1   0, 24z" />
+    <path class="buttonNav" ng-click="moveUp()" d="M50 10 l12   20 a40, 70 0 0,0 -24,  0z" />
+    <path class="buttonNav" ng-click="moveLeft()" d="M10 50 l20  -12 a70, 40 0 0,0   0, 24z" />
+    <path class="buttonNav" ng-click="moveDown()" d="M50 90 l12  -20 a40, 70 0 0,1 -24,  0z" />
+    <path class="buttonNav" ng-click="moveRight()" d="M90 50 l-20 -12 a70, 40 0 0,1   0, 24z" />
 
     <circle class="compassNav" cx="50" cy="50" r="20" />
-    <circle class="buttonNav" id="zoomIn" cx="50" cy="41" r="8" />
-    <circle class="buttonNav" id="zoomOut" cx="50" cy="59" r="8" />
+    <circle class="buttonNav" ng-click="zoomIn()" cx="50" cy="41" r="8" />
+    <circle class="buttonNav" ng-click="zoomOut()" cx="50" cy="59" r="8" />
 
     <rect class="plus-minusNav" x="46" y="39.5" width="8" height="3" />
     <rect class="plus-minusNav" x="46" y="57.5" width="9" height="3" />

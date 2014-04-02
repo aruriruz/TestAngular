@@ -20,12 +20,16 @@
             controller: function ($scope, $element, $attrs) {
 
                 // now is a good time to declare our FeautreLayer
-                var layer = new ArcGISDynamicMapServiceLayer($attrs.url);
-                layer.visible = ($attrs.visible) ? $attrs.visible : false,
+                var layer = new ArcGISDynamicMapServiceLayer($attrs.url, { id: $attrs.layerid, visible: $attrs.visible });
+                layer.setVisibleLayers([3]);
                 // lets expose a function to get the layer
                 this.getLayer = function () {
                     return layer;
                 };
+
+                this.setVisibility = function (isVisible) {
+                    layer.setVisibility(isVisible)
+                }
             },
 
             // now we can link our directive to the scope, but we can also add it to the map..

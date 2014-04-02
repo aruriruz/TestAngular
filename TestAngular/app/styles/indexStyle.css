@@ -1,0 +1,71 @@
+﻿html, body, #map {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#navigator {
+    position: absolute;
+}
+
+body {
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    -moz-box-ordinal-group: 1;
+    height: 35px;
+    width: 100%;
+    background-color: #2E8DEF;
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    display: -ms-flexbox;
+    -ms-flex-direction: row;
+    display: flex;
+    flex-direction: row;
+}
+
+nav {
+    width: 90%;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    -moz-box-ordinal-group: 1;
+}
+
+#logo {
+    width: 10%;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-item-align: center;
+    -webkit-box-align: center;
+}
+
+#mapSection {
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    -moz-box-ordinal-group: 2;
+    width: 100%;
+    height: calc(100% - 35px);
+}
+
+#legendContainer {
+    position: absolute;
+    z-index: 3;
+    background-color: white;
+    width: 30%;
+    max-height: calc(100% - 40px);
+    transform: translateX(-100%);
+    transition: transform 1s cubic-bezier(.21,.91,.91,1) !important;
+}
+
+.showLegend {
+    transform: translateX(0%) !important;
+}

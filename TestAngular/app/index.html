@@ -2,30 +2,29 @@
 <html>
 <head>
     <meta charset="utf-8">
-
     <title>Angular JS and Dojo</title>
-
-    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css" />
-
-    <style>
-        html, body, #map {
-            margin: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        #navigator {
-            position: absolute;
-        }
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.8/js/esri/css/esri.css" />
+    <link rel="stylesheet" href="styles/indexStyle.css" />
+    <link rel="stylesheet" href="widgets/css/agsjs.css" />
 </head>
-<body ng-controller="MapCtrl">
-
-    <esri-map id="map" center="-101, 24" zoom="5" basemap="satellite" onclick="click">
-      <esri-feature-layer url="http://192.168.105.102/copapep/rest/services/SIGAPP/SIGAPP/MapServer/0"></esri-feature-layer>
-      <esri-navigator id="navigator"></esri-navigator>
-    </esri-map>
+<body ng-controller="MapCtrl" class="claro">
+    <header>
+        <nav id="tools">
+            <button ng-click="clickCapas()">Capas</button>
+        </nav>
+        <img id="logo" alt="Logo COPAPEP" src="media/images/copapep_icon.png" />
+    </header>
+    <section id="mapSection">
+        <esri-map id="map" center="-101, 24" zoom="5" basemap="satellite">
+            <esri-feature-layer url="http://192.168.105.102/copapep/rest/services/SIGAPP/SIGAPP/MapServer/0" layerid="ProyAmb"></esri-feature-layer>
+            <esri-dynamic-layer url="http://192.168.105.102/copapep/rest/services/MAPASBASE/DIVISION_POLITICA/MapServer" layerid="DivPol"></esri-dynamic-layer>
+            <esri-navigator id="navigator"></esri-navigator>
+            <div id="legendContainer" ng-class="legendClass">
+            <esri-legend id="legend" data-legendVisible="true" layers="DivPol ProyAmb"></esri-legend>
+        </div>
+        </esri-map>
+    </section>
 
     <!-- Carga el API de Angular y de ArcGIS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>

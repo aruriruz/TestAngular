@@ -9,37 +9,37 @@
 
             // require the esriFeatureLayer to have its own controller as well an esriMap controller
             // you can access these controllers in the link function
-            require: ["^esriMap"],
+            require: "^esriMap",
 
             // replace this element with our template.
             // since we aren't declaring a template this essentially destroys the element
             replace: true,
 
             //// now we can link our directive to the scope, but we can also add it to the map..
-            link: function (scope, element, attrs, controllers) {
+            link: function (scope, element, attrs, controller) {
                 // controllers is now an array of the controllers from the 'require' option
-                var map = controllers[0];
-                element[0].getElementById("moveUp").onclick = function () {
+                var map = controller;
+                scope.moveUp = function () {
                     map.panUp();
                 };
-                element[0].getElementById("moveDown").onclick = function () {
+                scope.moveDown = function () {
                     map.panDown();
                 };
-                element[0].getElementById("moveLeft").onclick = function () {
+                scope.moveLeft = function () {
                     map.panLeft();
                 };
-                element[0].getElementById("moveRight").onclick = function () {
+                scope.moveRight = function () {
                     map.panRight();
                 };
-                element[0].getElementById("zoomIn").onclick = function () {
+                scope.zoomIn = function () {
                     map.zoomIn();
                 };
-                element[0].getElementById("zoomOut").onclick = function () {
+                scope.zoomOut = function () {
                     map.zoomOut();
                 };
             },
 
-            templateUrl: '/app/directives/templates/navigatorTemplate.html'
+            templateUrl: 'templates/navigatorTemplate.html'
         };
     });
 });
