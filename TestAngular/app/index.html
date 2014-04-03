@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>Angular JS and Dojo</title>
-    <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css">
-    <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.8/js/esri/css/esri.css" />
+    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css" />
     <link rel="stylesheet" href="styles/indexStyle.css" />
     <link rel="stylesheet" href="widgets/css/agsjs.css" />
 </head>
@@ -12,6 +12,8 @@
     <header>
         <nav id="tools">
             <button ng-click="clickCapas()">Capas</button>
+            <button ng-click="startGraticule()">Graticule Start</button>
+            <button ng-click="stopGraticule()">Graticule Stop</button>
         </nav>
         <img id="logo" alt="Logo COPAPEP" src="media/images/copapep_icon.png" />
     </header>
@@ -20,9 +22,13 @@
             <esri-feature-layer url="http://192.168.105.102/copapep/rest/services/SIGAPP/SIGAPP/MapServer/0" layerid="ProyAmb"></esri-feature-layer>
             <esri-dynamic-layer url="http://192.168.105.102/copapep/rest/services/MAPASBASE/DIVISION_POLITICA/MapServer" layerid="DivPol"></esri-dynamic-layer>
             <esri-navigator id="navigator"></esri-navigator>
+            <esri-scalebar attachTo="bottom-left" scalebarunit="metric"/>
+            <map-loader message="Espere por favor..."></map-loader>
+            <esri-overview attachTo="bottom-right"/>
+            <esri-graticule></esri-graticule>
             <div id="legendContainer" ng-class="legendClass">
-            <esri-legend id="legend" data-legendVisible="true" layers="DivPol ProyAmb"></esri-legend>
-        </div>
+                <esri-legend id="legend" data-legendVisible="true" layers="DivPol ProyAmb"></esri-legend>
+            </div>
         </esri-map>
     </section>
 

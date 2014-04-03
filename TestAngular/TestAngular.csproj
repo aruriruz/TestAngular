@@ -60,9 +60,14 @@
     <Content Include="app\controllers\MapCtrl.js" />
     <Content Include="app\directives\DynamicMapServiceLayer.js" />
     <Content Include="app\directives\FeatureLayer.js" />
+    <Content Include="app\directives\Graticule.js" />
     <Content Include="app\directives\Legend.js" />
+    <Content Include="app\directives\Loader.js" />
     <Content Include="app\directives\Map.js" />
     <Content Include="app\directives\Navigator.js" />
+    <Content Include="app\directives\OverviewMap.js" />
+    <Content Include="app\directives\ScaleBar.js" />
+    <Content Include="app\directives\templates\loaderTemplate.html" />
     <Content Include="app\directives\templates\navigatorTemplate.html" />
     <Content Include="app\index.html" />
     <Content Include="app\media\images\copapep.png" />
@@ -70,6 +75,7 @@
     <Content Include="app\scripts\init.js" />
     <Content Include="app\main.js" />
     <Content Include="app\scripts\setup.js" />
+    <Content Include="app\services\MapService.js" />
     <Content Include="app\styles\indexStyle.css" />
     <Content Include="app\widgets\css\agsjs.css" />
     <Content Include="app\widgets\dijit\css\TOC.css" />

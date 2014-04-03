@@ -9,12 +9,12 @@
             require: "^esriMap",
             controller: function ($scope, $element, $attrs, $controller) {
                 $element.removeAttr("id");
-                $element.append("<div id=" + $attrs.id + "Div" + "></div>");
+                $element.append("<div id=" + $attrs.id + "></div>");
                 $scope.refreshLegend = function () {
                     toc.refresh();
                 };
             },
-            
+
             link: function (scope, element, attrs, controller) {
                 var mapController = controller;
                 var layerinfos = [];
@@ -25,7 +25,7 @@
                 toc = new TOC({
                     map: map,
                     layerInfos: layerinfos
-                }, attrs.id+"Div");
+                }, attrs.id);
                 toc.startup();
             }
         };
