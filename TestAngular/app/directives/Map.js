@@ -2,9 +2,10 @@
   'app',
   'esri/map',
   'esri/geometry/Point',
-  'esri/geometry/webMercatorUtils'
+  'esri/geometry/webMercatorUtils',
+  'app/services/MapService'
 ], function (app, Map, Point, webMercatorUtils) {
-    app.directive('esriMap', function () {
+    app.directive('esriMap', function (MapService) {
         return {
             restrict: 'E',
             scope: false,
@@ -86,11 +87,25 @@
                     map.centerAndZoom(webMercatorUtils.geographicToWebMercator(point), zoom);
                 };
 
-                map.on("click", function (e) {
-                    $scope.$emit("map.click", e);
-                    $scope.$apply(function () {
-                        $scope.click.call($scope, e);
-                    });
+                map.on("mouse-down", function (e) {
+                    if (e.which === 3 && !(e.shiftKey || e.ctrlKey || e.altKey)) {
+                        var pntUtm = "x:" + e.mapPoint.x + " y:" + e.mapPoint.y;
+                        var geo = webMercatorUtils.webMercatorToGeographic(e.mapPoint);
+                        var pntGeo = "x:" + geo.x + " y:" + geo.y;
+                        var tmp = MapService.convertCoordinates(geo);
+                        var pntGeoForm = "x:" + tmp.x + " y:" + tmp.y;
+                        e.stopPropagation();
+                        var menu1 = [
+                            { 'Copiar Coordenadas UTM': function (menuItem, menu) { window.prompt("Copiar a portapapeles: Ctrl+C, Enter", pntUtm); } },
+                            $.contextMenu.separator,
+                            { 'Copiar Coordenadas Geo Dec': function (menuItem, menu) { window.prompt("Copiar a portapapeles: Ctrl+C, Enter", pntGeo); } },
+                            $.contextMenu.separator,
+                            { 'Copiar Coordenadas Geo Deg': function (menuItem, menu) { window.prompt("Copiar a portapapeles: Ctrl+C, Enter", pntGeoForm); } }
+                        ];
+                        $(function () {
+                            $('#' + $attrs.id).contextMenu(menu1, { theme: 'vista' });
+                        });
+                    }
                 });
             }
         };

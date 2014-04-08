@@ -61,6 +61,8 @@ nav {
     z-index: 3;
     background-color: white;
     width: 30%;
+    overflow-x: auto;
+    overflow-y: auto;
     max-height: calc(100% - 40px);
     transform: translateX(-100%);
     transition: transform 1s cubic-bezier(.21,.91,.91,1) !important;

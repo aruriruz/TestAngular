@@ -74,13 +74,19 @@
     <Content Include="app\media\images\copapep_icon.png" />
     <Content Include="app\scripts\init.js" />
     <Content Include="app\main.js" />
+    <Content Include="app\scripts\jquery.contextmenu.js" />
     <Content Include="app\scripts\setup.js" />
     <Content Include="app\services\MapService.js" />
     <Content Include="app\styles\indexStyle.css" />
+    <Content Include="app\styles\jquery.contextmenu.css" />
     <Content Include="app\widgets\css\agsjs.css" />
     <Content Include="app\widgets\dijit\css\TOC.css" />
     <Content Include="app\widgets\dijit\templates\tocNode.html" />
     <Content Include="app\widgets\dijit\TOC.js" />
+    <Content Include="packages.config" />
+    <None Include="app\scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="app\scripts\jquery-2.1.0.js" />
+    <Content Include="app\scripts\jquery-2.1.0.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Arturo.pubxml" />
+    <Content Include="app\scripts\jquery-2.1.0.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
