@@ -12,13 +12,7 @@
             compile: function ($element, $attrs) {
                 $element.removeAttr("id");
                 $element.append("<div id=" + $attrs.id + "></div>");
-                return function (scope, element, attrs, controller) {
-                    scope.$watch("center", function (newCenter, oldCenter) {
-                        if (newCenter !== oldCenter) {
-                            controller.centerAt(newCenter);
-                        }
-                    });
-                };
+                //$element.append("<div id="+"tempdiv"+"></div>");
             },
             controller: function ($scope, $element, $attrs) {
                 var center = $attrs.center.split(",");
@@ -107,6 +101,42 @@
                         });
                     }
                 });
+                var div = $element[0].querySelector("#map");
+
+                function handleDragOver(event) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                    event.dataTransfer.dropEffect = 'copy';
+                };
+
+                function handleDrop(event) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                    var files = event.dataTransfer.files;
+                    if (files.length == 0) return;
+                    var file = files[0];
+                    function loaded(evt) {
+                        var binFile = evt.binaryResponse;
+                        //var fileString = evt.target.result;
+                        //var binFile = new BinaryFile(fileString, 0, 0);
+                        if (window.console && window.console.log) console.log('got data, parsing shapefile');
+                        shpFile = new ShpFile(binFile);
+                        wwif (shpFile.header.shapeType != ShpType.SHAPE_POLYGON && shpFile.header.shapeType != ShpType.SHAPE_POLYLINE) {
+                            alert("Shapefile does not contain Polygon records (found type: " + shpFile.header.shapeType + ")");
+                        }
+                        render(shpFile.records);
+                    }
+                    var shpURL = "app/resources/Burgos.shp";
+                    var shpLoader = new BinaryAjax(shpURL, loaded, function () {
+                        var dsf = "";
+                    });
+                    //var reader = new FileReader();
+                    //reader.readAsText(file, "UTF-8");
+                    //reader.onload = loaded;
+                };
+
+                div.addEventListener("dragover", handleDragOver.bind(this), false);
+                div.addEventListener("drop", handleDrop.bind(this), false);
             }
         };
     });

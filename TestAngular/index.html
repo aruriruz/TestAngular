@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <title>Angular JS and Dojo</title>
-    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css">
-    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css" />
-    <link rel="stylesheet" href="styles/indexStyle.css" />
-    <link rel="stylesheet" href="widgets/css/agsjs.css" />
-    <link rel="stylesheet" href="styles/jquery.contextmenu.css" />
+    <link rel="stylesheet" href="http://js.arcgis.com/3.9/js/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.9/js/esri/css/esri.css" />
+    <link rel="stylesheet" href="app/styles/indexStyle.css" />
+    <link rel="stylesheet" href="app/widgets/css/agsjs.css" />
+    <link rel="stylesheet" href="app/styles/jquery.contextmenu.css" />
 </head>
 <body ng-controller="MapCtrl" class="claro">
     <header>
@@ -16,7 +16,7 @@
             <button ng-click="startGraticule()">Graticule Start</button>
             <button ng-click="stopGraticule()">Graticule Stop</button>
         </nav>
-        <img id="logo" alt="Logo COPAPEP" src="media/images/copapep_icon.png" />
+        <img id="logo" alt="Logo COPAPEP" src="app/media/images/copapep_icon.png" />
     </header>
     <section id="mapSection">
         <esri-map id="map" center="-101, 24" zoom="5" basemap="satellite">
@@ -32,14 +32,17 @@
             </div>
         </esri-map>
     </section>
-    <script src="scripts/jquery-2.1.0.js"></script>
-    <script src="scripts/jquery.contextmenu.js"></script>
+    <script src="app/scripts/jquery-2.1.0.js"></script>
+    <script src="app/scripts/jquery.contextmenu.js"></script>
+    <script src="app/scripts/binaryajax.js"></script>
+    <script src="app/scripts/binarywrapper.js"></script>
+    <script src="app/scripts/shapefile.js"></script>
     <!-- Carga el API de Angular y de ArcGIS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-    <script src="http://js.arcgis.com/3.8/"></script>
+    <script src="http://js.arcgis.com/3.9/"></script>
     <!-- Carga el archivo de configuración -->
-    <script src="scripts/setup.js" type="text/javascript"></script>
+    <script src="app/scripts/setup.js" type="text/javascript"></script>
     <!-- Empieza a cargar la aplicación -->
-    <script src="scripts/init.js" type="text/javascript"></script>
+    <script src="app/scripts/init.js" type="text/javascript"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 (function (angular) {
 
-    var root = location.pathname.replace(new RegExp(/\/[^\/]+$/), '');
+    var root = location.href.replace(location.pathname, '/app');//.replace(new RegExp(/\/[^\/]+$/), '');
 
     define('angular', function () {
         return angular;

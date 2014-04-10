@@ -69,13 +69,16 @@
     <Content Include="app\directives\ScaleBar.js" />
     <Content Include="app\directives\templates\loaderTemplate.html" />
     <Content Include="app\directives\templates\navigatorTemplate.html" />
-    <Content Include="app\index.html" />
+    <Content Include="app\scripts\binaryajax.js" />
+    <Content Include="app\scripts\binarywrapper.js" />
+    <Content Include="index.html" />
     <Content Include="app\media\images\copapep.png" />
     <Content Include="app\media\images\copapep_icon.png" />
     <Content Include="app\scripts\init.js" />
     <Content Include="app\main.js" />
     <Content Include="app\scripts\jquery.contextmenu.js" />
     <Content Include="app\scripts\setup.js" />
+    <Content Include="app\scripts\shapefile.js" />
     <Content Include="app\services\MapService.js" />
     <Content Include="app\styles\indexStyle.css" />
     <Content Include="app\styles\jquery.contextmenu.css" />
@@ -84,6 +87,9 @@
     <Content Include="app\widgets\dijit\templates\tocNode.html" />
     <Content Include="app\widgets\dijit\TOC.js" />
     <Content Include="packages.config" />
+    <Resource Include="app\resources\Burgos.shp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <None Include="app\scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="app\scripts\jquery-2.1.0.js" />
     <Content Include="app\scripts\jquery-2.1.0.min.js" />
