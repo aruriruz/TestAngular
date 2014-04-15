@@ -121,7 +121,7 @@
                         //var binFile = new BinaryFile(fileString, 0, 0);
                         if (window.console && window.console.log) console.log('got data, parsing shapefile');
                         shpFile = new ShpFile(binFile);
-                        wwif (shpFile.header.shapeType != ShpType.SHAPE_POLYGON && shpFile.header.shapeType != ShpType.SHAPE_POLYLINE) {
+                        if (shpFile.header.shapeType != ShpType.SHAPE_POLYGON && shpFile.header.shapeType != ShpType.SHAPE_POLYLINE) {
                             alert("Shapefile does not contain Polygon records (found type: " + shpFile.header.shapeType + ")");
                         }
                         render(shpFile.records);
